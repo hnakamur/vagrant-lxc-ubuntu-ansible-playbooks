@@ -1,0 +1,6 @@
+---
+vagrant_version: 1.6.5
+vagrant_deb_filename: vagrant_{{ vagrant_version }}_x86_64.deb
+vagrant_deb_sha256sum: e2c7af6d032ac551ebd6399265cb9cb64402c9fb96a12289161b7f67afada28a
+vagrant_download_url: https://dl.bintray.com/mitchellh/vagrant/{{ vagrant_deb_filename }}
+vagrant_download_path: /usr/local/src/{{ vagrant_deb_filename }}

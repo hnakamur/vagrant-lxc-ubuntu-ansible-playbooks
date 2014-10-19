@@ -1,0 +1,10 @@
+- hosts: all
+  gather_facts: yes
+  sudo: yes
+  roles:
+    - apt_sources
+    - apt_update
+    - ntp
+    - sysstat
+    - vagrant
+    - vagrant_lxc

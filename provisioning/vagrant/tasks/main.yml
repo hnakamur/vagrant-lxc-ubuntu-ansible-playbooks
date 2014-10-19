@@ -1,0 +1,11 @@
+---
+- command: dpkg -l vagrant
+  register: vagrant_installed
+  failed_when: vagrant_installed.rc not in [0, 1]
+  changed_when: False
+
+- get_url: url={{ vagrant_download_url }} dest={{ vagrant_download_path }} sha256sum={{ vagrant_deb_sha256sum }}
+  when: vagrant_installed.rc == 1
+
+- command: dpkg -i {{ vagrant_download_path }}
+  when: vagrant_installed.rc == 1
