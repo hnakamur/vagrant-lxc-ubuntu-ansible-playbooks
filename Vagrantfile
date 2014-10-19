@@ -13,6 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", "2048"]
   end
 
-  config.vm.provision "shell", path: "install_ansible.sh"
-  config.vm.provision "shell", inline: "cd /vagrant/provisioning && ansible-playbook playbook.yml"
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "provisioning/playbook.yml"
+  end
 end
