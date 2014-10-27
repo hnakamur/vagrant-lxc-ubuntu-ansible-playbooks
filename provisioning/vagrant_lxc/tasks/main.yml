@@ -5,6 +5,8 @@
   failed_when: vagrant_plugin_lxc_installed.rc not in [0, 1]
   changed_when: False
 
-- command: vagrant plugin install vagrant-lxc
+# NOTE: "sudo: no" and sudo in command are needed to install correctly
+# when running ansible-playbook on the VirtualBox VM
+- command: sudo vagrant plugin install vagrant-lxc
   sudo: no
   when: vagrant_plugin_lxc_installed.rc == 1
