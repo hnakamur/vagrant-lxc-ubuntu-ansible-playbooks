@@ -14,6 +14,8 @@
       tags: vagrant
     - role: vagrant_lxc
       tags: vagrant_lxc
+    - role: nginx
+      tags: nginx
     - role: lxc_container
       lxc_container_vagrantfile_dir: /home/vagrant/web1
       lxc_container_name: web1
