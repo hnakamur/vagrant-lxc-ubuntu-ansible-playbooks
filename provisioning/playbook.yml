@@ -3,17 +3,25 @@
   gather_facts: yes
   sudo: yes
   roles:
-    - apt_sources
-    - apt_update
-    - ntp
-    - sysstat
-    - vagrant
-    - vagrant_lxc
+    - role: apt_sources
+      tags: vagrant
+    - role: apt_update
+      tags: vagrant
+    - role: ntp
+      tags: vagrant
+    - role: sysstat
+      tags: vagrant
+    - role: vagrant
+      tags: vagrant
+    - role: vagrant_lxc
+      tags: vagrant_lxc
     - role: lxc_container
       lxc_container_vagrantfile_dir: /home/vagrant/web1
       lxc_container_name: web1
       lxc_container_ip_address: 10.0.3.101
+      tags: lxc_container
     - role: lxc_container
       lxc_container_vagrantfile_dir: /home/vagrant/web2
       lxc_container_name: web2
       lxc_container_ip_address: 10.0.3.102
+      tags: lxc_container
