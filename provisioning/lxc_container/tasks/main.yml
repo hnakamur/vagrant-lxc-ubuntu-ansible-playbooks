@@ -1,0 +1,16 @@
+---
+- file: path={{ lxc_container_vagrantfile_dir }} state=directory
+
+- template: src=Vagrantfile.j2 dest={{ lxc_container_vagrantfile_dir }}/Vagrantfile
+
+# NOTE: Commented out since I got the following error
+# failed: [default] => {"changed": true, "cmd": ["vagrant", "up"], "delta": "0:00:05.679316", "end": "2014-10-27 15:11:43.941264", "rc": 1, "start": "2014-10-27 15:11:38.261948"}
+# stderr: The provider 'lxc' could not be found, but was requested to
+# back the machine 'web1'. Please use a provider that exists.
+# 
+# FATAL: all hosts have already failed -- aborting
+#
+#- command: vagrant up
+#    chdir={{ lxc_container_vagrantfile_dir }}
+#  environment:
+#    VAGRANT_DEFAULT_PROVIDER: lxc

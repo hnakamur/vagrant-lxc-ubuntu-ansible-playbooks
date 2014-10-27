@@ -1,0 +1,5 @@
+---
+lxc_container_box: fgrehm/trusty64-lxc
+lxc_container_vagrantfile_dir: /vagrant/web1
+lxc_container_name: web1
+lxc_container_ip_address: 10.0.3.101

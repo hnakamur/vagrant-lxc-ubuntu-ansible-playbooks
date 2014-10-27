@@ -1,0 +1,13 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "{{ lxc_container_box }}"
+  config.vm.define "{{ lxc_container_name }}" do |node|
+    node.vm.provider :lxc do |lxc|
+      lxc.customize 'network.ipv4', '{{ lxc_container_ip_address }}/32'
+    end
+  end
+end
